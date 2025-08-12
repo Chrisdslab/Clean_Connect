@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - CleanConnect</title>
+    <link rel="stylesheet" href="styless.css">
+    <style>
+        .notifications-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            max-width: 600px;
+            margin: 40px auto;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .notification-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .notification-item:last-child {
+            border-bottom: none;
+        }
+        .notif-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e0f5e9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            margin-right: 15px;
+        }
+        .notif-text {
+            flex: 1;
+            font-size: 14px;
+        }
+        .notif-time {
+            color: #888;
+            font-size: 12px;
+        }
+        .notif-action {
+            background: #27ae60;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        .notif-action:hover {
+            background: #219150;
+        }
+    </style>
+</head>
+<body>
+    <!-- Impact Counter -->
+    <div class="impact-counter">
+        🌱 124 cleanups completed • 2.3k kg waste removed
+    </div>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">🌱</div>
+                <span class="logo-text">CleanConnect</span>
+            </div>
+
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link"><span class="nav-icon">🏠</span>Dashboard</a></li>
+                <li><a href="search.html" class="nav-link"><span class="nav-icon">🔍</span>Search</a></li>
+                <li><a href="notifications.html" class="nav-link active"><span class="nav-icon">🔔</span>Notifications</a></li>
+                <li><a href="create-report.html" class="nav-link"><span class="nav-icon">➕</span>Create Report</a></li>
+                <li><li><a href="gather.html" class="nav-link"><span class="nav-icon">🤝</span>Gather</a></li></li>
+                <li><a href="profile.html" class="nav-link"><span class="nav-icon">👤</span>Profile</a></li>
+                <li><a href="settings.html" class="nav-link"><span class="nav-icon">⚙️</span>Settings</a></li>
+            </ul>
+
+           
+        </nav>
+
+        
+        <main class="main-content">
+            <div class="notifications-container">
+                <h2 style="margin-bottom: 20px; color: #262626;">Notifications</h2>
+
+                <div class="notification-item">
+                    <div class="notif-avatar">👤</div>
+                    <div class="notif-text">
+                        <strong>GreenGoa_2025</strong> started following you
+                        <div class="notif-time">2h ago</div>
+                    </div>
+                </div>
+
+                <div class="notification-item">
+                    <div class="notif-avatar">💬</div>
+                    <div class="notif-text">
+                        <strong>EcoBeachTeam</strong> commented on your report: "Great work!"
+                        <div class="notif-time">5h ago</div>
+                    </div>
+                </div>
+
+                <div class="notification-item">
+                    <div class="notif-avatar">📅</div>
+                    <div class="notif-text">
+                        You’ve been invited to join a cleanup at <strong>Baga Beach</strong>
+                        <div class="notif-time">1 day ago</div>
+                    </div>
+                    <div class="notif-action">Join</div>
+                </div>
+
+                <div class="notification-item">
+                    <div class="notif-avatar">🗑️</div>
+                    <div class="notif-text">
+                        <strong>PlasticFreeGoa</strong> completed a cleanup near your location
+                        <div class="notif-time">2 days ago</div>
+                    </div>
+                </div>
+
+                <div class="notification-item">
+                    <div class="notif-avatar">🏆</div>
+                    <div class="notif-text">
+                        Congratulations! You’ve reached <strong>50 cleanups</strong> milestone
+                        <div class="notif-time">3 days ago</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    
+    const darkModePreference = localStorage.getItem('darkMode');
+    if (darkModePreference === 'true') {
+        document.body.classList.add('dark-mode');
+    }
+});
+
+
+function toggleDarkMode() {
+    const body = document.body;
+    body.classList.toggle('dark-mode');
+    
+    
+    const isDarkMode = body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isDarkMode);
+    
+    
+    const toggle = document.getElementById('darkModeToggle');
+    if (toggle) {
+        if (isDarkMode) {
+            toggle.classList.add('active');
+        } else {
+            toggle.classList.remove('active');
+        }
+    }
+}
+</script>
+</body>
+</html>

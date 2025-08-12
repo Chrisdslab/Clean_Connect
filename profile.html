@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CleanConnect - Profile</title>
+    <link rel="stylesheet" href="styless.css">
+    <style>
+        /* Instagram-like profile adjustments */
+        .profile-header-insta {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+            background: #fff;
+        }
+        .profile-avatar-insta {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #cce8d5;
+            font-size: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 30px;
+        }
+        .profile-info-insta {
+            flex: 1;
+        }
+        .profile-info-insta h1 {
+            font-size: 1.5rem;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .edit-btn {
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            background: #f9f9f9;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .stats-insta {
+            display: flex;
+            gap: 20px;
+            margin: 10px 0;
+        }
+        .stats-insta div {
+            font-size: 1rem;
+        }
+        .profile-bio-insta {
+            font-size: 0.9rem;
+        }
+        .tab-bar {
+            display: flex;
+            justify-content: center;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            background: #fff;
+        }
+        .tab-bar button {
+            flex: 1;
+            padding: 10px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        .tab-bar button.active {
+            border-top: 2px solid #4CAF50;
+            font-weight: bold;
+        }
+        .post-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            background: #fff;
+        }
+        .post-grid img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+   
+    <div class="impact-counter">
+        🌱 124 cleanups completed • 2.3k kg waste removed
+    </div>
+
+    <div class="app-container">
+       
+        <nav class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">🌱</div>
+                <span class="logo-text">CleanConnect</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link"><span class="nav-icon">🏠</span>Dashboard</a></li>
+                <li><a href="profile.html" class="nav-link active"><span class="nav-icon">👤</span>Profile</a></li>
+            </ul>
+            <button class="logout-btn" onclick="window.location.href='login.html'">🚪 Log out</button>
+        </nav>
+
+        
+        <main class="main-content">
+           
+            <div class="profile-header-insta">
+                <div class="profile-avatar-insta">🌿</div>
+                <div class="profile-info-insta">
+                    <h1>EcoWarrior_Goa <button class="edit-btn">Edit Profile</button></h1>
+                    <div class="stats-insta">
+                        <div><strong>47</strong> posts</div>
+                        <div><strong>234</strong> followers</div>
+                        <div><strong>189</strong> following</div>
+                    </div>
+                    <div class="profile-bio-insta">
+                        <strong>Environmental Activist</strong><br>
+                        Fighting for a cleaner Goa 🌊<br>
+                        Beach cleanup organizer 🏖️<br>
+                        <a href="#">cleanconnect.goa</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="tab-bar">
+                <button class="active">📋 Posts</button>
+                
+            </div>
+
+            <!-- Posts Grid -->
+            <div class="post-grid">
+                <img src="https://via.placeholder.com/300" alt="Post 1">
+                <img src="https://via.placeholder.com/300" alt="Post 2">
+                <img src="https://via.placeholder.com/300" alt="Post 3">
+                <img src="https://via.placeholder.com/300" alt="Post 4">
+                <img src="https://via.placeholder.com/300" alt="Post 5">
+                <img src="https://via.placeholder.com/300" alt="Post 6">
+            </div>
+        </main>
+    </div>
+    
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    
+    const darkModePreference = localStorage.getItem('darkMode');
+    if (darkModePreference === 'true') {
+        document.body.classList.add('dark-mode');
+    }
+});
+
+
+function toggleDarkMode() {
+    const body = document.body;
+    body.classList.toggle('dark-mode');
+    
+    
+    const isDarkMode = body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isDarkMode);
+    
+    
+    const toggle = document.getElementById('darkModeToggle');
+    if (toggle) {
+        if (isDarkMode) {
+            toggle.classList.add('active');
+        } else {
+            toggle.classList.remove('active');
+        }
+    }
+}
+</script>
+</body>
+</html>

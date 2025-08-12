@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CleanConnect - Feed</title>
+    <link rel="stylesheet" href="styless.css">
+    <style>
+        .feed-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+        }
+        .post-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .post-header {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+        .post-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #e6f4ea;
+            margin-right: 10px;
+        }
+        .post-username {
+            font-weight: bold;
+        }
+        .before-after {
+            display: flex;
+            gap: 2px;
+        }
+        .before-after img {
+            width: 50%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .post-caption {
+            padding: 10px;
+            font-size: 14px;
+        }
+        .post-meta {
+            padding: 0 10px 10px;
+            font-size: 12px;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        
+        <nav class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">🌱</div>
+                <span class="logo-text">CleanConnect</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <span class="nav-icon">🏠</span>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="feed.html" class="nav-link active">
+                        <span class="nav-icon">📰</span>
+                        <span>Feed</span>
+                    </a>
+                </li>
+            </ul>
+            
+        </nav>
+
+        <main class="main-content">
+            <div class="feed-container">
+
+                <!-- Post 1 -->
+                <div class="post-card">
+                    <div class="post-header">
+                        <div class="post-avatar">🌿</div>
+                        <div class="post-username">EcoWarrior_Goa</div>
+                    </div>
+                    <div class="before-after">
+                        <img src="before1.jpg" alt="Before Cleanup">
+                        <img src="after1.jpg" alt="After Cleanup">
+                    </div>
+                    <div class="post-caption">
+                        Massive cleanup drive at Baga Beach 🌊  
+                        Removed over 300kg of waste with the help of 20 amazing volunteers!
+                    </div>
+                    <div class="post-meta">
+                        2 hours ago • 15 volunteers joined
+                    </div>
+                </div>
+
+                <!-- Post 2 -->
+                <div class="post-card">
+                    <div class="post-header">
+                        <div class="post-avatar">🐢</div>
+                        <div class="post-username">GoaGreenTeam</div>
+                    </div>
+                    <div class="before-after">
+                        <img src="before2.jpg" alt="Before Cleanup">
+                        <img src="after2.jpg" alt="After Cleanup">
+                    </div>
+                    <div class="post-caption">
+                        bus stand cleaup at Margao🚮
+                    </div>
+                    <div class="post-meta">
+                        Yesterday • 12 volunteers joined
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+   
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    
+    const darkModePreference = localStorage.getItem('darkMode');
+    if (darkModePreference === 'true') {
+        document.body.classList.add('dark-mode');
+    }
+});
+
+
+function toggleDarkMode() {
+    const body = document.body;
+    body.classList.toggle('dark-mode');
+    
+   
+    const isDarkMode = body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isDarkMode);
+    
+    
+    const toggle = document.getElementById('darkModeToggle');
+    if (toggle) {
+        if (isDarkMode) {
+            toggle.classList.add('active');
+        } else {
+            toggle.classList.remove('active');
+        }
+    }
+}
+</script>
+</body>
+</html>

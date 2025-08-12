@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gather - CleanConnect</title>
+    <link rel="stylesheet" href="styless.css">
+    <style>
+        .gather-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            max-width: 800px;
+            margin: 40px auto;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .event-card {
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .event-card:last-child {
+            border-bottom: none;
+        }
+        .event-details {
+            flex: 1;
+        }
+        .event-title {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        .event-meta {
+            font-size: 13px;
+            color: #555;
+        }
+        .rsvp-btn {
+            background: #27ae60;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .rsvp-btn:hover {
+            background: #219150;
+        }
+    </style>
+</head>
+<body>
+  
+    <div class="impact-counter">
+        🌱 124 cleanups completed • 2.3k kg waste removed
+    </div>
+
+    <div class="app-container">
+     
+        <nav class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">🌱</div>
+                <span class="logo-text">CleanConnect</span>
+            </div>
+
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link"><span class="nav-icon">🏠</span>Dashboard</a></li>
+                <li><a href="search.html" class="nav-link"><span class="nav-icon">🔍</span>Search</a></li>
+                <li><a href="notifications.html" class="nav-link"><span class="nav-icon">🔔</span>Notifications</a></li>
+                <li><a href="create-report.html" class="nav-link"><span class="nav-icon">➕</span>Create Report</a></li>
+                <li><a href="gather.html" class="nav-link active"><span class="nav-icon">🤝</span>Gather</a></li>
+                <li><a href="profile.html" class="nav-link"><span class="nav-icon">👤</span>Profile</a></li>
+                <li><a href="settings.html" class="nav-link"><span class="nav-icon">⚙️</span>Settings</a></li>
+            </ul>
+
+        </nav>
+
+        
+        <main class="main-content">
+            <div class="gather-container">
+                <h2 style="margin-bottom: 20px; color: #262626;">Upcoming Cleanups & Events</h2>
+
+                <div class="event-card">
+                    <div class="event-details">
+                        <div class="event-title">Baga Beach Plastic Cleanup</div>
+                        <div class="event-meta">📍 Baga Beach • 📅 Aug 15, 2025 • 8:00 AM</div>
+                        <div class="event-meta">15 volunteers confirmed</div>
+                    </div>
+                    <button class="rsvp-btn">join</button>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-details">
+                        <div class="event-title">Anjuna Shore Water Pollution Survey</div>
+                        <div class="event-meta">📍 Anjuna Shore • 📅 Aug 20, 2025 • 10:00 AM</div>
+                        <div class="event-meta">8 volunteers confirmed</div>
+                    </div>
+                    <button class="rsvp-btn">join</button>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-details">
+                        <div class="event-title">Margao Park Tree Planting</div>
+                        <div class="event-meta">📍 Margao Park • 📅 Aug 25, 2025 • 9:00 AM</div>
+                        <div class="event-meta">12 volunteers confirmed</div>
+                    </div>
+                    <button class="rsvp-btn">join</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    
+    const darkModePreference = localStorage.getItem('darkMode');
+    if (darkModePreference === 'true') {
+        document.body.classList.add('dark-mode');
+    }
+});
+
+
+function toggleDarkMode() {
+    const body = document.body;
+    body.classList.toggle('dark-mode');
+    
+    
+    const isDarkMode = body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isDarkMode);
+    
+    
+    const toggle = document.getElementById('darkModeToggle');
+    if (toggle) {
+        if (isDarkMode) {
+            toggle.classList.add('active');
+        } else {
+            toggle.classList.remove('active');
+        }
+    }
+}
+</script>
+</body>
+</html>

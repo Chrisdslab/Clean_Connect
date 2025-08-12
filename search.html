@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CleanConnect - Search Gatherings</title>
+    <link rel="stylesheet" href="styless.css">
+    <style>
+        .search-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+        }
+        .search-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .search-bar input {
+            flex: 1;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+        .search-bar button {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 8px;
+            background: #4CAF50;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .gathering-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .gathering-title {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        .gathering-location {
+            color: gray;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .gathering-meta {
+            font-size: 12px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <nav class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">🌱</div>
+                <span class="logo-text">CleanConnect</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <span class="nav-icon">🏠</span>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="search.html" class="nav-link active">
+                        <span class="nav-icon">🔍</span>
+                        <span>Search</span>
+                    </a>
+                </li>
+            </ul>
+            
+        </nav>
+
+        
+        <main class="main-content">
+            <div class="search-container">
+                <h2>Search Gatherings by Location</h2>
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Enter location (e.g. Baga Beach)">
+                    <button onclick="searchGatherings()">Search</button>
+                </div>
+
+                <div id="results">
+                    
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const gatherings = [
+            { title: "Baga Beach Cleanup", location: "Baga Beach", volunteers: 15, date: "2025-08-15" },
+            { title: "Panaji Drain Clearance", location: "Panaji Market", volunteers: 8, date: "2025-08-20" },
+            { title: "Dona Paula Marine Debris Removal", location: "Dona Paula", volunteers: 12, date: "2025-08-18" },
+            { title: "Calangute Illegal Dumping Awareness", location: "Calangute", volunteers: 20, date: "2025-08-22" }
+        ];
+
+        function searchGatherings() {
+            const query = document.getElementById("searchInput").value.toLowerCase();
+            const resultsDiv = document.getElementById("results");
+            resultsDiv.innerHTML = "";
+
+            const filtered = gatherings.filter(g => g.location.toLowerCase().includes(query));
+
+            if (filtered.length === 0) {
+                resultsDiv.innerHTML = "<p>No gatherings found for this location.</p>";
+                return;
+            }
+
+            filtered.forEach(g => {
+                const card = document.createElement("div");
+                card.className = "gathering-card";
+                card.innerHTML = `
+                    <div class="gathering-title">${g.title}</div>
+                    <div class="gathering-location">📍 ${g.location}</div>
+                    <div class="gathering-meta">${g.date} • ${g.volunteers} volunteers joined</div>
+                `;
+                resultsDiv.appendChild(card);
+            });
+        }
+    </script>
+   
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    
+    const darkModePreference = localStorage.getItem('darkMode');
+    if (darkModePreference === 'true') {
+        document.body.classList.add('dark-mode');
+    }
+});
+
+
+function toggleDarkMode() {
+    const body = document.body;
+    body.classList.toggle('dark-mode');
+    
+    
+    const isDarkMode = body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isDarkMode);
+    
+    
+    const toggle = document.getElementById('darkModeToggle');
+    if (toggle) {
+        if (isDarkMode) {
+            toggle.classList.add('active');
+        } else {
+            toggle.classList.remove('active');
+        }
+    }
+}
+</script>
+</body>
+</html>

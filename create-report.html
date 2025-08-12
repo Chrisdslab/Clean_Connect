@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Report - CleanConnect</title>
+    <link rel="stylesheet" href="styless.css">
+    <style>
+      
+        .form-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            max-width: 500px;
+            margin: 40px auto;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .form-container h2 {
+            margin-bottom: 15px;
+            color: #262626;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 6px;
+        }
+        .form-group input, 
+        .form-group textarea, 
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+        .form-group textarea {
+            resize: vertical;
+            height: 80px;
+        }
+        .submit-btn {
+            background: #27ae60;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .submit-btn:hover {
+            background: #219150;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="impact-counter">
+        🌱 124 cleanups completed • 2.3k kg waste removed
+    </div>
+
+    <div class="app-container">
+        
+        <nav class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">🌱</div>
+                <span class="logo-text">CleanConnect</span>
+            </div>
+
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link"><span class="nav-icon">🏠</span><span>Dashboard</span></a></li>
+                <li><a href="search.html" class="nav-link"><span class="nav-icon">🔍</span><span>Search</span></a></li>
+                <li><a href="notifications.html" class="nav-link"><span class="nav-icon">🔔</span><span>Notifications</span></a></li>
+                <li><a href="create-report.html" class="nav-link active"><span class="nav-icon">➕</span><span>Create Report</span></a></li>
+                <li><li><a href="gather.html" class="nav-link"><span class="nav-icon">🤝</span>Gather</a></li></li>
+                <li><a href="profile.html" class="nav-link"><span class="nav-icon">👤</span><span>Profile</span></a></li>
+                <li><a href="settings.html" class="nav-link"><span class="nav-icon">⚙️</span><span>Settings</span></a></li>
+            </ul>
+
+        </nav>
+
+        <main class="main-content">
+            <div class="form-container">
+                <h2>Create New Report</h2>
+                <form id="createReportForm">
+                    <!-- Photo Upload -->
+                    <div class="form-group">
+                        <label for="photo">Upload Photo</label>
+                        <input type="file" id="photo" accept="image/*" required>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" placeholder="Describe the problem..." required></textarea>
+                    </div>
+
+                    <!-- Location -->
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" placeholder="Enter location in Goa" required>
+                    </div>
+
+                    <!-- Date -->
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" required>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Submit Report</button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.getElementById("createReportForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("Report submitted successfully!");
+            
+        });
+    </script>
+   
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+   
+    const darkModePreference = localStorage.getItem('darkMode');
+    if (darkModePreference === 'true') {
+        document.body.classList.add('dark-mode');
+    }
+});
+
+
+function toggleDarkMode() {
+    const body = document.body;
+    body.classList.toggle('dark-mode');
+    
+    
+    const isDarkMode = body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isDarkMode);
+    
+   
+    const toggle = document.getElementById('darkModeToggle');
+    if (toggle) {
+        if (isDarkMode) {
+            toggle.classList.add('active');
+        } else {
+            toggle.classList.remove('active');
+        }
+    }
+}
+</script>
+</body>
+</html>
